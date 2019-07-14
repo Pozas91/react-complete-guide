@@ -62,6 +62,16 @@ class App extends Component {
 
     render() {
 
+        console.info('Render method!');
+
+        const style = {
+            backgroundColor: 'white',
+            font: 'inherit',
+            border: '1px solid blue',
+            padding: '8px',
+            cursor: 'pointer'
+        };
+
         let persons = null;
 
         if (this.state.showPersons) {
@@ -77,13 +87,15 @@ class App extends Component {
                     })}
                 </div>
             );
+
+            style.backgroundColor = 'red';
         }
 
         return (
             <div className="App">
                 <h1>Hi, I'm a React App</h1>
                 <p>This is really working!</p>
-                <button onClick={this.togglePersonsHandler}>Switch Name</button>
+                <button style={style} onClick={this.togglePersonsHandler}>Switch Name</button>
                 {persons}
             </div>
         )
