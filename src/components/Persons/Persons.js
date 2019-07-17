@@ -1,7 +1,7 @@
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import Person from "./Person/Person";
 
-class Persons extends Component {
+class Persons extends PureComponent {
 
     // static getDerivedStateFromProps(props, state) {
     //     console.log('[Persons.js] getDerivedStateFromProps');
@@ -12,15 +12,22 @@ class Persons extends Component {
     //     console.log('[Persons.js] componentWillReceiveProps', nextProps);
     // }
 
-    shouldComponentUpdate(nextProps, nextState, nextContext) {
-        console.log('[Persons.js] shouldComponentUpdated');
+    /**
+     * Si se va a comprobar todas las propiedades antes de ver si se debería actualizar el componente, entonces podemos
+     * usar PureComponent
+     **/
 
-        /**
-         * Si la variable actual es diferente a la que teníamos anteriormente, entonces  permitimos al componente
-         * actualizarse.
-         */
-        return nextProps.persons !== this.props.persons;
-    }
+    // shouldComponentUpdate(nextProps, nextState, nextContext) {
+    //     console.log('[Persons.js] shouldComponentUpdated');
+    //
+    //     /**
+    //      * Si la variable actual es diferente a la que teníamos anteriormente, entonces  permitimos al componente
+    //      * actualizarse.
+    //      */
+    //     return nextProps.persons !== this.props.persons ||
+    //         nextProps.changed !== this.props.changed ||
+    //         nextProps.clicked !== this.props.clicked;
+    // }
 
     getSnapshotBeforeUpdate(prevProps, prevState) {
         console.log('[Persons.js] getSnapshotBeforeUpdate');
