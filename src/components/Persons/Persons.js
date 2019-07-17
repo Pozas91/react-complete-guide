@@ -14,7 +14,6 @@ class Persons extends Component {
 
     shouldComponentUpdate(nextProps, nextState, nextContext) {
         console.log('[Persons.js] shouldComponentUpdated');
-
         return true;
     }
 
