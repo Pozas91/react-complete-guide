@@ -3,6 +3,7 @@ import classes from "./Cockpit.css";
 
 const cockpit = (props) => {
 
+    // Si la variable inputs está vacía, no se observa nada y por tanto sólo se ejecutará la función la primera vez.
     useEffect(() => {
         console.log('[Cockpit.js] useEffect');
         // Http request...
@@ -10,8 +11,6 @@ const cockpit = (props) => {
             alert('Saved data to cloud!');
         }, 1000);
     }, []);
-
-    // useEffect();
 
     const assignedClasses = [];
     let btnClass = '';
