@@ -4,15 +4,34 @@ import Persons from "../components/Persons/Persons";
 import Cockpit from '../components/Cockpit/Cockpit';
 
 class App extends Component {
-    state = {
-        persons: [
-            {id: 1, name: 'Max', age: 28},
-            {id: 2, name: 'Manu', age: 29},
-            {id: 3, name: 'Stephanie', age: 26}
-        ],
-        otherState: 'some other value',
-        showPersons: false
-    };
+
+    constructor(props) {
+        super(props);
+        console.info('[App.js] constructor');
+
+        this.state = {
+            persons: [
+                {id: 1, name: 'Max', age: 28},
+                {id: 2, name: 'Manu', age: 29},
+                {id: 3, name: 'Stephanie', age: 26}
+            ],
+            otherState: 'some other value',
+            showPersons: false
+        };
+    }
+
+    static getDerivedStateFromProps(props, state) {
+        console.log('[App.js] getDerivedStateFromProps ', props);
+        return state;
+    }
+
+    componentWillMount() {
+        console.log('[App.js] componentWillMount');
+    }
+
+    componentDidMount() {
+        console.log('[App.js] componentDidMount');
+    }
 
     nameChangedHandler = (event, id) => {
         const personIndex = this.state.persons.findIndex(p => {
@@ -50,7 +69,7 @@ class App extends Component {
 
     render() {
 
-        console.info('Render method!');
+        console.info('[App.js] render');
 
         let persons = null;
 
