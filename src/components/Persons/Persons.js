@@ -14,7 +14,12 @@ class Persons extends Component {
 
     shouldComponentUpdate(nextProps, nextState, nextContext) {
         console.log('[Persons.js] shouldComponentUpdated');
-        return true;
+
+        /**
+         * Si la variable actual es diferente a la que teníamos anteriormente, entonces  permitimos al componente
+         * actualizarse.
+         */
+        return nextProps.persons !== this.props.persons;
     }
 
     getSnapshotBeforeUpdate(prevProps, prevState) {
