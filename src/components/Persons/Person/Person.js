@@ -10,7 +10,7 @@ class Person extends Component {
         console.log('[Person.js] render');
 
         return (
-            <Aux className={classes.Person}>
+            <React.Fragment>
                 <p
                     onClick={this.props.click}>
                     I'm {this.props.name} and I am {this.props.age} years old!
@@ -20,7 +20,7 @@ class Person extends Component {
                     type="text"
                     onChange={this.props.changed}
                     value={this.props.name}/>
-            </Aux>
+            </React.Fragment>
         )
     }
 }
